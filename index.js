@@ -1,20 +1,7 @@
 'use strict';
 
-module.exports.helloworld = async (event,context,callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: printHelloWorld(),
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
-callback(null,response)
+module.exports.helloworld = event => {
+  const randomNumber = parseInt(Math.random() * 100);
+  console.log("The random generated integer is: ", randomNumber);
+  return randomNumber;
 };
-function printHelloWorld(){
-  return "Hello World";
-}
-module.exports.printHelloWorld=printHelloWorld;
